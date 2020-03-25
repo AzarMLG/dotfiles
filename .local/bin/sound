@@ -15,14 +15,13 @@ volume(){
 }
 
 icon(){
-	#local vol=$(volume)
 	if (("$vol" == "0")); then
 		echo "/usr/share/icons/Adwaita/32x32/status/audio-volume-muted-symbolic.symbolic.png"
 		return
 	elif (("$vol" > "100")); then
 		echo "/usr/share/icons/Adwaita/32x32/status/audio-volume-overamplified-symbolic.symbolic.png"
 		return
-	elif (("$vol" > "70")); then
+	elif (("$vol" >= "70")); then
 		echo "/usr/share/icons/Adwaita/32x32/status/audio-volume-high-symbolic.symbolic.png"
 		return
 	elif (("$vol" >= "30")); then
