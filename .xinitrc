@@ -44,7 +44,6 @@ case $session in
         updatecheck &                           # Pacman & AUR notification updates
 
         /usr/lib/kdeconnectd &                  # KDE Connect daemon
-        kdeconnect-indicator &                  # And system tray for it 
 
         ~/.local/bin/keyremap &                 # Remap capslock to esc & disable numlock         
         numlockx &                              # Enable numlock keypad just in case
@@ -57,5 +56,3 @@ case $session in
         exec gnome-session
     ;;
 esac
-
-
