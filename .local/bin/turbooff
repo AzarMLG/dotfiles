@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# 1 - WILL DIABLE TORBOBOOST
+# 0 - WILL ENABLE IT
+
+echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo

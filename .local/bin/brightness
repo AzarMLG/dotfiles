@@ -1,0 +1,27 @@
+#!/bin/bash
+
+percent(){
+	curr=$(brightnessctl get)
+	max=$(brightnessctl max)
+	((percent= $curr * 100 / $max))
+	
+	if (("$percent" != "100")); then
+		((percent= $percent + 1))
+	fi
+	
+	echo $percent
+}
+
+notify(){
+	dunstify "Brightness" "At $(percent) %" -i /usr/share/icons/Adwaita/32x32/categories/emoji-objects-symbolic.symbolic.png -r 2
+}
+
+NUM="${2:-5}"
+
+case "$1" in
+	up) 	brightnessctl -q set "$NUM"%+ ;;
+	down) 	brightnessctl -q set "$NUM"%- ;;
+esac
+
+notify
+
