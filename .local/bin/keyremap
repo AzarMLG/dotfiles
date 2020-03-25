@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# I think there is some kind of race condition or something when 
+# running these commands from .xinitrc, therefore here's the fix :)
+
+sleep 3
+
+setxkbmap -option caps:escape   # Map capslock as esc
+xmodmap -e "keycode 77 = """    # Disable goddamn numlock key
