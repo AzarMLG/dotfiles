@@ -1,6 +1,3 @@
-" Always show statusline
-set laststatus=2
-
 " Show line number
 set number
 
@@ -43,9 +40,6 @@ set tabstop=4
 " Colors
 colo default
 
-" Mouse scrolling
-set mouse=nicr
-
 " Disable automatic commenting on new line:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
@@ -70,5 +64,3 @@ au BufReadPost * if line("'\"") > 0 && line ("'\"") <= line("$") | exe "normal! 
 highlight lCursor guifg=NONE guibg=Cyan
 
 set background=dark  
-
-set mouse=a
