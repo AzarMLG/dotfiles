@@ -51,7 +51,6 @@ echo -ne '\e[5 q'
 # Use beam shape cursor for each new prompt.
 preexec() { echo -ne '\e[1 q' ;}
 
-
 #alias ls='ls --color=auto --group-directories-first'
 alias ls="lsd --group-dirs=first"
 alias grep="grep --colour=auto"
@@ -67,39 +66,39 @@ alias dd="dd status=progress"
 alias more=less
 alias free="free -h"
 
-alias bat="cat /sys/class/power_supply/BAT?/capacity" 		# Battery capacity 
-alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"	# Update GRUB configuration
+alias bat="cat /sys/class/power_supply/BAT?/capacity"            # Battery capacity 
+alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"    # Update GRUB configuration
 
-alias gpuon="sudo tee /proc/acpi/bbswitch <<<ON"   		# Turn on nvidia GPU
-alias gpuoff="sudo tee /proc/acpi/bbswitch <<<OFF" 		# Turn off nvidia GPU
-alias gpulist="lspci -k | grep -A 2 -E '(VGA|3D)'"	 	# List GPUs
+alias gpuon="sudo tee /proc/acpi/bbswitch <<<ON"                 # Turn on nvidia GPU
+alias gpuoff="sudo tee /proc/acpi/bbswitch <<<OFF"               # Turn off nvidia GPU
+alias gpulist="lspci -k | grep -A 2 -E '(VGA|3D)'"               # List GPUs
 
-alias gcstart="gcloud compute instances start gc-debian"	# Start gcloud instance
-alias gcstop="gcloud compute instances stop gc-debian"  	# Stop gcloud instance
-alias gclist="gcloud compute instances list" 			# List gcloud instances
+alias gcstart="gcloud compute instances start gc-debian"         # Start gcloud instance
+alias gcstop="gcloud compute instances stop gc-debian"           # Stop gcloud instance
+alias gclist="gcloud compute instances list"                     # List gcloud instances
 
-alias purge="sudo pacman -Rns"					# Remove package with all dependencies
-alias update="yay -Syu"					# Pacman update
-#alias install="sudo pacman -Sy"				# Pacman sync
-alias autoremove="yay -Yc"					# Remove orphans
+alias purge="sudo pacman -Rns"                                   # Remove package with all dependencies
+alias update="yay -Syu"                                          # Pacman update
+#alias install="sudo pacman -Sy"                                 # Pacman sync
+alias autoremove="yay -Yc"                                       # Remove orphans
 
-alias suspend="systemctl suspend"				# Suspend 
-alias hibernate="systemctl hibernate"				# Hibernate
+alias suspend="systemctl suspend"                                # Suspend 
+alias hibernate="systemctl hibernate"                            # Hibernate
 
-alias bc="bc -ql"						# Run bc without welcome msg
-alias rnm="sudo systemctl restart NetworkManager"		# Restart Network Manager
-alias caps="setxkbmap -option caps:escape"			# Map capslock as esc
+alias bc="bc -ql"                                                # Run bc without welcome msg
+alias rnm="sudo systemctl restart NetworkManager"                # Restart Network Manager
+alias caps="setxkbmap -option caps:escape"                       # Map capslock as esc
 alias startx="startx ~/.xinitrc"
 
-alias google=googler						# Google search CLI
+alias google=googler                                             # Google search CLI
 alias pubip="dig +short myip.opendns.com @resolver1.opendns.com" # Get internet IP
-alias corona="curl https://corona-stats.online"			# Coronavius stats
+alias corona="curl https://corona-stats.online"                  # Coronavius stats
 
-alias zc="vim ~/.zshrc"			# zsh config
-alias xc="vim ~/.xinitrc"		# xrun config
-alias bsc="vim ~/.config/bspwm/bspwmrc"	# bspwm config
-alias sc="vim ~/.config/sxhkd/sxhkdrc"	# sxhkd config
-alias pc="vim ~/.config/polybar/config"	# polybar config
+alias zc="vim ~/.zshrc"                                          # zsh config
+alias xc="vim ~/.xinitrc"                                        # xrun config
+alias bsc="vim ~/.config/bspwm/bspwmrc"                          # bspwm config
+alias sc="vim ~/.config/sxhkd/sxhkdrc"                           # sxhkd config
+alias pc="vim ~/.config/polybar/config"                          # polybar config
 
 
 # This is a function to automatically change the directory to
