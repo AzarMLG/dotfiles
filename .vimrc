@@ -1,5 +1,17 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+
 " Show line number
 set number
+
+" Highlight search
+set hls
 
 " All matches in tab complete
 set wildmenu
