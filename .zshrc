@@ -78,9 +78,9 @@ alias gcstop="gcloud compute instances stop gc-debian"           # Stop gcloud i
 alias gclist="gcloud compute instances list"                     # List gcloud instances
 
 alias purge="sudo pacman -Rns"                                   # Remove package with all dependencies
-alias update="yay -Syu"                                          # Pacman update
-#alias install="sudo pacman -Sy"                                 # Pacman sync
-alias autoremove="yay -Yc"                                       # Remove orphans
+alias update="yay -Syu"                                          # Update packages
+alias inst="yay -Sy"                                             # Install package
+alias autoremove="yay -Yc"                                       # Remove orphan packages
 
 alias suspend="systemctl suspend"                                # Suspend 
 alias hibernate="systemctl hibernate"                            # Hibernate
