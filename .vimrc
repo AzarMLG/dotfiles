@@ -9,7 +9,8 @@ call vundle#end()                                                              "
 filetype plugin indent on                                                      " required for Vundle
 
 set number                                                                     " Show line number
-set hls                                                                        " Highlight search
+set timeoutlen=1000 ttimeoutlen=0                                              " Disable Esc delay
+"set hls                                                                        " Highlight search
 set wildmenu wildmode=longest,list,full                                        " All matches in tab complete
 set keymap=russian-jcukenwin                                                   " Russian layout on ctrl + ^
 set rtp+=/usr/share/powerline/bindings/vim/                                    " Powerline
@@ -22,6 +23,10 @@ set noshowmode                                                                 "
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " Disable automatic commenting on new line:
 set splitbelow splitright                                                      " Sptits open at the bottom and right
 map <F6> :setlocal spell! spelllang=en_us,ru_yo<CR>                            " Spellcheck on F6
+
+" Copy and paste to and from vim
+vnoremap <C-c> "*y :let @+=@*<CR>
+map <C-p> "+P
 
 " Use spaces instead of tabs
 set expandtab                                                                  " In Insert mode: Use the appropriate number of spaces to insert a <Tab> 
