@@ -52,34 +52,35 @@ case $session in
     ;;
     dwm )
         #Session lock
-        xautolock -time 10 -locker lock -killtime 40 -killer suspend -notify 10 -notifier "notify-send 'Locking' 'In 10 seconds'" -corners 0-00 & 
+#        xautolock -time 10 -locker lock -killtime 40 -killer suspend -notify 10 -notifier "notify-send 'Locking' 'In 10 seconds'" -corners 0-00 & 
 
-        setbg ~/Pictures/wallpapers &           # Set wallpaper
-     
-        dunst &                                 # Notifications
+        # Set random wallpaper every 12 hours
+        while true; do
+            setbg ~/Pictures/wallpapers                # Set wallpaper
+            betterlockscreen -u ~/Pictures/wallpapers  # Set lockscreen
+            sleep 12h 
+        done &
+
         sxhkd -c ~/.config/sxhkd/dwmsxhkdrc &   # Simple X hotkey daemon
         xsetroot -cursor_name left_ptr &        # Change X shaped default cursor
         setxkbmap -layout us,ru &               # Keyboard layouts
 
-        yandex-disk &                           # Yandex disk daemon
-        yandex-disk-indicator &                 # And system tray for it
-
-        redshift-gtk &                          # Redshift system tray
-        unclutter &                             # Remove mouse when idle
-
-        cbatticon &                             # Battery indicator
-        nm-applet &                             # Network indicator 
-        status &                                # dwm status bar
-
         xrdb ~/.Xresources &                    # Load Xresources
         xcompmgr -c &                           # Transparency
 
+        dunst &                                 # Notifications
+        yandex-disk &                           # Yandex disk daemon
+        yandex-disk-indicator &                 # And system tray for it
+        redshift-gtk &                          # Redshift system tray
+        cbatticon &                             # Battery indicator
+        nm-applet &                             # Network indicator 
+        status &                                # dwm status bar
+        unclutter &                             # Remove mouse when idle
         updatecheck &                           # Pacman & AUR notification updates
         /usr/lib/kdeconnectd &                  # KDE Connect daemon
-        #play-with-mpv &                        # Play youtube videos in mpv browser extension
-        telegram-desktop &                      
+        telegram-desktop &                      # Telegram 
 
-        remaps & 
+        remaps &                                # Remap some keys
         numlockx &                              # Enable numlock keypad just in case
         
         exec dwm
