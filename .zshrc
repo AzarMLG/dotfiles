@@ -52,14 +52,14 @@ echo -ne '\e[5 q'
 preexec() { echo -ne '\e[1 q' ;}
 
 #alias ls='ls --color=auto --group-directories-first'
+#alias df="df -h"
 alias ls="lsd --group-dirs=first"
+alias df=pydf
 alias grep="grep --colour=auto"
 alias diff="diff --color=auto"
 alias cp="cp -iv"
 alias mv="mv -iv"
 alias rm="rm -v"
-#alias df="df -h"
-alias df=pydf
 alias du="du -h"
 alias free="free -m"
 alias dd="dd status=progress"
@@ -77,7 +77,7 @@ alias gcstart="gcloud compute instances start gc-debian"         # Start gcloud 
 alias gcstop="gcloud compute instances stop gc-debian"           # Stop gcloud instance
 alias gclist="gcloud compute instances list"                     # List gcloud instances
 
-alias purge="sudo pacman -Rns"                                   # Remove package with all dependencies
+alias purge="sudo pacman -Rns"                                   # Remove package and all dependencies
 alias update="yay -Syu"                                          # Update packages
 alias inst="yay -Sy"                                             # Install package
 alias autoremove="yay -Yc"                                       # Remove orphan packages
@@ -87,7 +87,7 @@ alias hibernate="systemctl hibernate"                            # Hibernate
 
 alias bc="bc -ql"                                                # Run bc without welcome msg
 alias rnm="sudo systemctl restart NetworkManager"                # Restart Network Manager
-alias caps="setxkbmap -option caps:escape"                       # Map capslock as esc
+alias caps="remaps"                                              # Map capslock as esc
 alias startx="startx ~/.xinitrc"
 
 alias google=googler                                             # Google search CLI
