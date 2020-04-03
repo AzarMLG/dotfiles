@@ -1,0 +1,83 @@
+#
+# wm independent hotkeys
+#
+
+# make sxhkd reload its configuration files:
+super + shift + Escape
+	pkill -USR1 -x sxhkd
+
+# brightness ctl
+ctrl + XF86MonBrightnessUp 
+	brightness up 1
+ctrl + XF86MonBrightnessDown
+	brightness down 1
+XF86MonBrightnessUp
+	brightness up 5
+XF86MonBrightnessDown
+	brightness down 5
+shift + XF86MonBrightnessUp
+	brightness up 15
+shift + XF86MonBrightnessDown
+	brightness down 15
+ctrl + shift + XF86MonBrightnessUp 
+	brightness up 30
+ctrl + shift + XF86MonBrightnessDown
+	brightness down 30
+
+# sound ctl 
+ctrl + XF86AudioRaiseVolume 
+	sound up 1
+ctrl + XF86AudioLowerVolume
+	sound down 1
+XF86AudioRaiseVolume
+	sound up 5
+XF86AudioLowerVolume
+	sound down 5
+shift + XF86AudioRaiseVolume
+	sound up 15
+shift + XF86AudioLowerVolume
+	sound down 15
+ctrl + shift + XF86AudioRaiseVolume 
+	sound up 30
+ctrl + shift + XF86AudioLowerVolume
+	sound down 30
+
+# change keyboard
+alt + space 
+	{setxkbmap ru, setxkbmap us}
+
+# lock screen
+ctrl + alt + l
+	setxkbmap -layout us && betterlockscreen -l -off 60
+
+# lauhch brouser
+super + alt + i
+	brave
+
+# launch telegram
+super + alt + t
+	telegram-desktop
+
+# launch spotify
+super + alt + s
+	spotify
+
+# launch bitwarden
+super + alt + b
+	bitwarden
+
+# launch mail client
+super + alt + m
+	xdg-open "https://mail.yandex.by/"
+
+# network
+super + alt + n
+	networkmanager_dmenu
+
+# screenshot
+Print
+	gscreenshot
+
+# reboot
+XF86Launch1
+	sudo reboot
