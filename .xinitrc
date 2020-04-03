@@ -54,12 +54,8 @@ case $session in
         #Session lock
 #        xautolock -time 10 -locker lock -killtime 40 -killer suspend -notify 10 -notifier "notify-send 'Locking' 'In 10 seconds'" -corners 0-00 & 
 
-        # Set random wallpaper every 12 hours
-        while true; do
-            setbg ~/Pictures/wallpapers                # Set wallpaper
-            betterlockscreen -u ~/Pictures/wallpapers  # Set lockscreen
-            sleep 12h 
-        done &
+        setbg ~/Pictures/wallpapers                # Set wallpaper
+        betterlockscreen -u ~/Pictures/wallpapers  # Set lockscreen
 
         sxhkd -c ~/.config/sxhkd/dwmsxhkdrc &   # Simple X hotkey daemon
         xsetroot -cursor_name left_ptr &        # Change X shaped default cursor
