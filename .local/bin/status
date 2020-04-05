@@ -1,6 +1,6 @@
 #!/bin/sh
 while true; do
 
-    xsetroot -name "NET: | RAM: $(free -h | awk '/^Mem:/ {print $3 "/" $2}') | CPU: | KEY: $(setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}') | $(LC_ALL=ru_RU.utf8 date) |"
+    xsetroot -name "RAM: $(free -h | awk '/^Mem:/ {print $3 "/" $2}') | CPU: $(sensors | awk '/Core 0/ {print $3}') | KEY: $(setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}') | $(LC_ALL=ru_RU.utf8 date) |"
     sleep 1
 done
