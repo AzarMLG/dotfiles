@@ -1,0 +1,4 @@
+#!/bin/sh
+
+setbg ~/Pictures/wallpapers
+betterlockscreen -u ~/Pictures/wallpapers
