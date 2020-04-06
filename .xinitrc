@@ -1,5 +1,5 @@
 #!/bin/sh
-session=${1:-bspwm}
+session=${1:-dwm}
 gpu=${2:-nvidia}
 
 case $gpu in
