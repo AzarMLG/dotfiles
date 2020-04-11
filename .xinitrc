@@ -54,7 +54,7 @@ case $session in
         #Session lock
 #        xautolock -time 10 -locker lock -killtime 40 -killer suspend -notify 10 -notifier "notify-send 'Locking' 'In 10 seconds'" -corners 0-00 & 
 
-        chbg &                                  # Set random backgroung & lockscreen images
+        chbg &                                  # Set random background & lockscreen images
 
         sxhkd -c ~/.config/sxhkd/dwmsxhkdrc &   # Simple X hotkey daemon
         xsetroot -cursor_name left_ptr &        # Change X shaped default cursor
