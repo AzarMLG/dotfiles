@@ -92,7 +92,9 @@ alias startx="startx ~/.xinitrc"
 
 alias google=googler                                             # Google search CLI
 alias pubip="dig +short myip.opendns.com @resolver1.opendns.com" # Get internet IP
-alias corona="curl https://corona-stats.online"                  # Coronavius stats
+alias corona="curl -s https://corona-stats.online"               # Coronavius stats
+                                                                 # Corona in Belarus
+alias coronab='curl -s https://corona-stats.online/belarus | grep -e Country -e Belarus -e ═ -e ─ -e World --color=no' 
 alias weather="curl wttr.in"                                     # Show weather forecast
 
 alias zc="vim ~/.zshrc"                                          # zsh config
