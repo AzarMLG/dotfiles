@@ -76,7 +76,7 @@ super + alt + n
 
 # screenshot
 Print
-	gscreenshot
+	spectacle
 
 # reboot
 XF86Launch1
