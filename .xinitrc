@@ -45,7 +45,7 @@ case $session in
 
         /usr/lib/kdeconnectd &                  # KDE Connect daemon
 
-        ~/.local/bin/keyremap &                 # Remap capslock to esc & disable numlock         
+        ~/.local/bin/keyremap &                 # Remap caps lock to esc & disable numlock         
         numlockx &                              # Enable numlock keypad just in case
 
         exec bspwm 
