@@ -1,5 +1,5 @@
 #!/bin/sh
 while true; do 
 	aarchup --aur
-	sleep 30m
+	sleep 6h
 done
