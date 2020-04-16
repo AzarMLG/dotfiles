@@ -3,10 +3,10 @@
 percent(){
 	curr=$(brightnessctl get)
 	max=$(brightnessctl max)
-	((percent= $curr * 100 / $max))
+	((percent= curr * 100 / $max))
 	
 	if (("$percent" != "100")); then
-		((percent= $percent + 1))
+		((percent= percent + 1))
 	fi
 	
 	echo $percent

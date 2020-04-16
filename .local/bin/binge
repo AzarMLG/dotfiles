@@ -1,2 +1,2 @@
 #!/bin/sh
-mpv --playlist=${HOME}/Videos/binge
+mpv --playlist="${HOME}"/Videos/binge
