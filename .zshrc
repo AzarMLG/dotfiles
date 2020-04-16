@@ -97,11 +97,11 @@ alias corona="curl -s https://corona-stats.online"               # Coronavius st
 alias coronab='curl -s https://corona-stats.online/belarus | grep -e Country -e Belarus -e ═ -e ─ -e World --color=no' 
 alias weather="curl wttr.in"                                     # Show weather forecast
 
-alias zc="vim ~/.zshrc"                                          # zsh config
-alias xc="vim ~/.xinitrc"                                        # xrun config
-alias bsc="vim ~/.config/bspwm/bspwmrc"                          # bspwm config
-alias sc="vim ~/.config/sxhkd/sxhkdrc"                           # sxhkd config
-alias pc="vim ~/.config/polybar/config"                          # polybar config
+alias zc="'$EDITOR' ~/.zshrc"                                    # zsh config
+alias xc="'$EDITOR' ~/.xinitrc"                                  # xrun config
+alias sc="'$EDITOR' ~/.config/sxhkd/dwmsxhkdrc"                  # sxhkd config
+alias pc="'$EDITOR' ~/.config/polybar/config"                    # polybar config
+alias bsc="'$EDITOR' ~/.config/bspwm/bspwmrc"                    # bspwm config
 
 
 # This is a function to automatically change the directory to
@@ -118,7 +118,6 @@ function ranger-cd {
     fi
     rm -f -- "$tempfile"
 }
-
 
 # This binds Ctrl-O to ranger-cd:
 bindkey -s '^o' 'ranger-cd\n'
