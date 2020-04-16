@@ -6,6 +6,11 @@
 super + shift + Escape
 	pkill -USR1 -x sxhkd
 
+
+#terminal
+super + alt + t
+    st
+
 # brightness ctl
 ctrl + XF86MonBrightnessUp 
 	brightness up 1
@@ -42,7 +47,7 @@ ctrl + shift + XF86AudioRaiseVolume
 ctrl + shift + XF86AudioLowerVolume
 	sound down 30
 
-# change keyboard
+# change keyboard layout
 alt + space 
 	{setxkbmap ru, setxkbmap us}
 
