@@ -1,0 +1,23 @@
+#!/bin/bash
+
+session=dwm
+
+printf '\nSelect your envoriment:'
+printf '1. DWM\n2. KDE\n3. BSPWM\n4. GNOME\n9. Select GPU\n0. Cancel\n'
+
+x=0
+read -p "Enter choise (default is dwm): " x
+
+case $x in
+    1) session=dwm ;;
+    2) session=kde ;;
+    3) session=bspwm ;;
+    4) session=gnome ;;
+
+    9) echo 'todo' ; exit 3 ;;
+
+    0) echo 'exiting...' ; exit 3 ;;
+    *) echo 'starting dwm...' ;;
+esac
+
+startx ~/.xinitrc $session
