@@ -4,7 +4,6 @@ gpu=${2:-nvidia}
 
 case $gpu in
     nvidia )
-        #Enable NVIDIA GPU 
         xrandr --setprovideroutputsource modesetting NVIDIA-0 
         xrandr --auto 
         xrandr --dpi 96
@@ -84,5 +83,8 @@ case $session in
         export XDG_SESSION_TYPE=x11
         export GDK_BACKEND=x11
         exec gnome-session
+    ;;
+    kde )
+        exec startplasma-x11
     ;;
 esac
