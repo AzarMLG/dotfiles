@@ -2,6 +2,7 @@
 Description=Turboboost off switch
 
 [Service]
+Type=oneshot
 ExecStart=/home/azar/.local/bin/turbooff
 
 [Install]
