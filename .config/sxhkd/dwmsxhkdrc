@@ -6,7 +6,6 @@
 super + Escape
 	pkill -USR1 -x sxhkd
 
-
 #terminal
 super + alt + t
     st
@@ -61,7 +60,7 @@ ctrl + alt + l
 
 # lauhch brouser
 super + alt + i
-	brave
+	firefox
 
 # launch telegram
 super + alt + t
@@ -74,6 +73,9 @@ super + alt + s
 # launch bitwarden
 super + alt + b
 	bitwarden
+# ulauncher
+ctrl + space
+    ulauncher
 
 # launch mail client
 super + alt + m
