@@ -81,6 +81,8 @@ alias purge="sudo pacman -Rns"                                   # Remove packag
 alias update="yay -Syu"                                          # Update packages
 alias inst="yay -Sy"                                             # Install package
 alias autoremove="yay -Yc"                                       # Remove orphan packages
+                                                                 # List packages by size
+alias pkgsize="LC_ALL=C pacman -Qi | awk '/^Name/{name=\$3} /^Installed Size/{print \$4\$5, name}' | sort -h"
 
 alias suspend="systemctl suspend"                                # Suspend 
 alias hibernate="systemctl hibernate"                            # Hibernate
