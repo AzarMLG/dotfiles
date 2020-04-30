@@ -65,14 +65,11 @@ case $session in
         dunst &                                 # Notifications
         yandex-disk &                           # Yandex disk daemon
         yandex-disk-indicator &                 # And system tray for it
-        redshift-gtk &                          # Redshift system tray
+        redshift &                              # Redshift 
         cbatticon &                             # Battery indicator
         nm-applet &                             # Network indicator 
         status &                                # dwm status bar
         unclutter &                             # Remove mouse when idle
-        updatecheck &                           # Pacman & AUR notification updates
-        /usr/lib/kdeconnectd &                  # KDE Connect daemon
-        telegram-desktop &                      # Telegram 
 
         remaps &                                # Remap some keys
         numlockx &                              # Enable numlock keypad just in case
