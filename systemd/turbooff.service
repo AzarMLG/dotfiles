@@ -1,0 +1,8 @@
+[Unit]
+Description=Turboboost off switch
+
+[Service]
+ExecStart=/home/azar/.local/bin/turbooff
+
+[Install]
+WantedBy=multi-user.target
