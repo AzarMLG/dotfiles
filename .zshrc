@@ -66,6 +66,8 @@ alias dd="dd status=progress"
 alias more=less
 alias free="free -h"
 
+alias sudo="sudo "                                               # Pass aliases to sudo
+
 alias bat="cat /sys/class/power_supply/BAT?/capacity"            # Battery capacity 
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"    # Update GRUB configuration
 
