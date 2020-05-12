@@ -26,8 +26,15 @@ print_bit() {
     echo "$bit"
 }
 
+host=$(hostname)
+
 INTERVAL=1
-INTERFACES="enp7s0 wlp8s0"
+
+if [ "$host" = 'p8z77' ]; then
+    INTERFACES="enp3s0"
+elif [ "$host" = 'y510p' ]; then
+    INTERFACES="enp7s0 wlp8s0"
+fi
 
 declare -A bytes
 
@@ -67,7 +74,7 @@ while true; do
     CPU="$(sensors | awk '/Core 0/ {print $3}')"
     KEY="$(setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}')"
     VOL="$(pamixer --get-volume)"
-    DATE="$(LC_ALL=ru_RU.utf8 date)"
+    DATE="$(LC_ALL=ru_RU.utf8 date +"%a %d %b %y %R")"
     
 
     xsetroot -name "$UP $DW | RAM: $RAM | CPU: $CPU | VOL: $VOL% | KEY: $KEY | $DATE |"
