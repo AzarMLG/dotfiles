@@ -50,6 +50,23 @@ ctrl + shift + XF86AudioRaiseVolume
 ctrl + shift + XF86AudioLowerVolume
 	sound down 30
 
+super +ctrl + Right 
+	sound up 1
+super +ctrl + Left
+	sound down 1
+super +Right
+	sound up 5
+super +Left
+	sound down 5
+super +shift + Right
+	sound up 15
+super +shift + Left
+	sound down 15
+super +ctrl + shift + Right 
+	sound up 30
+super +ctrl + shift + Left
+	sound down 30
+
 # change keyboard layout
 alt + space 
 	{setxkbmap ru, setxkbmap us}
