@@ -7,7 +7,7 @@ super + Escape
 	pkill -USR1 -x sxhkd
 
 #terminal
-super + alt + t
+ctrl + alt + t
     st
 
 #ranger
@@ -90,6 +90,7 @@ super + alt + s
 # launch bitwarden
 super + alt + b
 	bitwarden
+
 # ulauncher
 ctrl + space
     ulauncher
@@ -102,9 +103,13 @@ super + alt + m
 super + alt + n
 	networkmanager_dmenu
 
-# screenshot
-Print
-	screengrab
+# screenshot of region
+ctrl + Print
+	screengrab -r
+
+# screenshot of screen
+alt + Print
+    screengrab -f
 
 # reboot
 XF86Launch1
