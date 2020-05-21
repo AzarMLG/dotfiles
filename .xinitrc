@@ -13,46 +13,11 @@ case $gpu in
     ;;
 esac 
 
+#Fix for Java
+export AWT_TOOLKIT=MToolkit
+
 case $session in
-    bspwm )
-        #Fix for Java
-        export AWT_TOOLKIT=MToolkit
-
-        #Session lock
-        xautolock -time 10 -locker lock -killtime 40 -killer suspend -notify 10 -notifier "notify-send 'Locking' 'In 10 seconds'" -corners 0-00 & 
-
-        # Set wallpaper
-        feh --bg-fill ~/wall.jpg & 
-
-        #Launching apps
-        sxhkd &                                 # Simple X hotkey daemon
-        dunst &                                 # Notifications
-        
-        xsetroot -cursor_name left_ptr &        # Change X shaped default cursor
-        setxkbmap -layout us,ru &               # Keyboard layouts
-
-        yandex-disk &                           # Yandex disk daemon
-        yandex-disk-indicator &                 # And system tray for it
-
-        redshift-gtk &                          # Redshift system tray
-        unclutter &                             # Remove mouse when idle
-
-        xrdb ~/.Xresources &                    # Load Xresources
-        xcompmgr -c &                           # Transparency
-
-        updatecheck &                           # Pacman & AUR notification updates
-
-        /usr/lib/kdeconnectd &                  # KDE Connect daemon
-
-        ~/.local/bin/keyremap &                 # Remap caps lock to esc & disable numlock         
-        numlockx &                              # Enable numlock keypad just in case
-
-        exec bspwm 
-    ;;
     dwm )
-        #Session lock
-#        xautolock -time 10 -locker lock -killtime 40 -killer suspend -notify 10 -notifier "notify-send 'Locking' 'In 10 seconds'" -corners 0-00 & 
-
         chbg &                                  # Set random background & lockscreen images
 
         sxhkd -c ~/.config/sxhkd/dwmsxhkdrc &   # Simple X hotkey daemon
@@ -71,17 +36,11 @@ case $session in
         status &                                # dwm status bar
         unclutter &                             # Remove mouse when idle
 
+        x0vncserver -rfbauth ~/.vnc/passwd &    # VNC server
+
         remaps &                                # Remap some keys
         numlockx &                              # Enable numlock keypad just in case
         
         exec dwm
-    ;;
-    gnome )
-        export XDG_SESSION_TYPE=x11
-        export GDK_BACKEND=x11
-        exec gnome-session
-    ;;
-    kde )
-        exec startplasma-x11
     ;;
 esac
