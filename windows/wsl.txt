@@ -1,1 +1,0 @@
-Mount external drives: sudo mount -t drvfs D: /mnt/d
