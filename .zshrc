@@ -51,10 +51,13 @@ echo -ne '\e[5 q'
 # Use beam shape cursor for each new prompt.
 preexec() { echo -ne '\e[1 q' ;}
 
-#alias ls='ls --color=auto --group-directories-first'
-#alias df="df -h"
-alias ls="lsd --group-dirs=first"
-alias df=pydf
+#alias more=less
+#alias ls="lsd --group-dirs=first"
+#alias df=pydf
+#alias startx="startx ~/.xinitrc"
+
+alias ls='ls --color=auto --group-directories-first'
+alias df="df -h"
 alias grep="grep --colour=auto"
 alias diff="diff --color=auto"
 alias cp="cp -iv"
@@ -63,7 +66,6 @@ alias rm="rm -v"
 alias du="du -h"
 alias free="free -m"
 alias dd="dd status=progress"
-alias more=less
 alias free="free -h"
 
 alias sudo="sudo "                                               # Pass aliases to sudo
@@ -92,7 +94,7 @@ alias hibernate="systemctl hibernate"                            # Hibernate
 alias bc="bc -ql"                                                # Run bc without welcome msg
 alias rnm="sudo systemctl restart NetworkManager"                # Restart Network Manager
 alias caps="remaps"                                              # Map capslock as esc
-alias startx="startx ~/.xinitrc"
+
 
 alias google=googler                                             # Google search CLI
 alias pubip="dig +short myip.opendns.com @resolver1.opendns.com" # Get internet IP
@@ -130,4 +132,4 @@ bindkey -s '^o' 'ranger-cd\n'
 autoload -Uz tetriscurses
 
 # Load zsh-syntax-highlighting; should be last.
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
