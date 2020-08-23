@@ -70,17 +70,17 @@ alias bat="cat /sys/class/power_supply/BAT?/capacity"            # Battery capac
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"    # Update GRUB configuration
 
 # Uncomment if Arch based
-alias purge="sudo pacman -Rns"                                   # Remove package and
+alias purge="sudo pacman -Rns"                                   # Remove packages
 alias update="yay -Syu"                                          # Update packages
-alias inst="yay -Sy"                                             # Install package
+alias inst="yay -Sy"                                             # Install packages
 alias autoremove="yay -Yc"                                       # Remove orphan packages
                                                                  # List packages by size
 alias pkgsize="LC_ALL=C pacman -Qi | awk '/^Name/{name=\$3} /^Installed Size/{print \$4\$5, name}' | sort -h"
 
 # Uncomment if Debian based
-#alias purge="sudo apt purge"                                     # Remove package and
+#alias purge="sudo apt purge"                                     # Remove packages
 #alias update="sudo apt update && sudo apt update"                # Update packages
-#alias inst="sudo apt install"                                    # Install package
+#alias inst="sudo apt install"                                    # Install packages
 #alias autoremove="sudo apt autoremove"                           # Remove orphan packages
 
 alias poweroff="systemctl poweroff"                              # Poweroff
