@@ -51,11 +51,8 @@ echo -ne '\e[5 q'
 # Use beam shape cursor for each new prompt.
 preexec() { echo -ne '\e[1 q' ;}
 
-#alias more=less
-#alias ls="lsd --group-dirs=first"
-#alias df=pydf
-#alias startx="startx ~/.xinitrc"
-
+# ALIASES
+# Basic stuff
 alias ls='ls --color=auto --group-directories-first'
 alias df="df -h"
 alias grep="grep --colour=auto"
@@ -64,7 +61,6 @@ alias cp="cp -iv"
 alias mv="mv -iv"
 alias rm="rm -v"
 alias du="du -h"
-alias free="free -m"
 alias dd="dd status=progress"
 alias free="free -h"
 
@@ -73,21 +69,22 @@ alias sudo="sudo "                                               # Pass aliases 
 alias bat="cat /sys/class/power_supply/BAT?/capacity"            # Battery capacity 
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"    # Update GRUB configuration
 
-alias gpuon="sudo tee /proc/acpi/bbswitch <<<ON"                 # Turn on nvidia GPU
-alias gpuoff="sudo tee /proc/acpi/bbswitch <<<OFF"               # Turn off nvidia GPU
-alias gpulist="lspci -k | grep -A 2 -E '(VGA|3D)'"               # List GPUs
-
-alias gcstart="gcloud compute instances start gc-debian"         # Start gcloud instance
-alias gcstop="gcloud compute instances stop gc-debian"           # Stop gcloud instance
-alias gclist="gcloud compute instances list"                     # List gcloud instances
-
-alias purge="sudo pacman -Rns"                                   # Remove package and all dependencies
+# Uncomment if Arch based
+alias purge="sudo pacman -Rns"                                   # Remove package and
 alias update="yay -Syu"                                          # Update packages
 alias inst="yay -Sy"                                             # Install package
 alias autoremove="yay -Yc"                                       # Remove orphan packages
                                                                  # List packages by size
 alias pkgsize="LC_ALL=C pacman -Qi | awk '/^Name/{name=\$3} /^Installed Size/{print \$4\$5, name}' | sort -h"
 
+# Uncomment if Debian based
+#alias purge="sudo apt purge"                                     # Remove package and
+#alias update="sudo apt update && sudo apt update"                # Update packages
+#alias inst="sudo apt install"                                    # Install package
+#alias autoremove="sudo apt autoremove"                           # Remove orphan packages
+
+alias poweroff="systemctl poweroff"                              # Poweroff
+alias reboot="systemctl reboot"                                  # Reboot
 alias suspend="systemctl suspend"                                # Suspend 
 alias hibernate="systemctl hibernate"                            # Hibernate
 
@@ -95,26 +92,34 @@ alias bc="bc -ql"                                                # Run bc withou
 alias rnm="sudo systemctl restart NetworkManager"                # Restart Network Manager
 alias caps="remaps"                                              # Map capslock as esc
 
-
 alias google=googler                                             # Google search CLI
-alias pubip="dig +short myip.opendns.com @resolver1.opendns.com" # Get internet IP
 alias corona="curl -s https://corona-stats.online"               # Coronavius stats
                                                                  # Corona in Belarus
 alias coronab='curl -s https://corona-stats.online/belarus | grep -e Country -e Belarus -e ═ -e ─ -e World --color=no' 
 alias weather="curl wttr.in"                                     # Show weather forecast
 
-alias zc="'$EDITOR' ~/.zshrc"                                    # zsh config
-alias xc="'$EDITOR' ~/.xinitrc"                                  # xrun config
-alias sc="'$EDITOR' ~/.config/sxhkd/dwmsxhkdrc"                  # sxhkd config
-alias pc="'$EDITOR' ~/.config/polybar/config"                    # polybar config
-alias bsc="'$EDITOR' ~/.config/bspwm/bspwmrc"                    # bspwm config
+# DEPRICATED ALIASES
+#alias more=less
+#alias ls="lsd --group-dirs=first"
+#alias df=pydf
+#alias startx="startx ~/.xinitrc"
+#alias gpuon="sudo tee /proc/acpi/bbswitch <<<ON"                 # Turn on nvidia GPU
+#alias gpuoff="sudo tee /proc/acpi/bbswitch <<<OFF"               # Turn off nvidia GPU
+#alias gpulist="lspci -k | grep -A 2 -E '(VGA|3D)'"               # List GPUs
+#alias gcstart="gcloud compute instances start gc-debian"         # Start gcloud instance
+#alias gcstop="gcloud compute instances stop gc-debian"           # Stop gcloud instance
+#alias gclist="gcloud compute instances list"                     # List gcloud instances
+#alias zc="'$EDITOR' ~/.zshrc"                                    # zsh config
+#alias xc="'$EDITOR' ~/.xinitrc"                                  # xrun config
+#alias sc="'$EDITOR' ~/.config/sxhkd/dwmsxhkdrc"                  # sxhkd config
+#alias pc="'$EDITOR' ~/.config/polybar/config"                    # polybar config
+#alias bsc="'$EDITOR' ~/.config/bspwm/bspwmrc"                    # bspwm config
 
 
 # This is a function to automatically change the directory to
 # the last visited one after ranger quits.
 # To undo the effect of this function, you can type "cd -" to return to the
 # original directory.
-
 function ranger-cd {
     tempfile="$(mktemp -t tmp.XXXXXX)"
     ranger --choosedir="$tempfile" "${@:-$(pwd)}"
@@ -124,7 +129,6 @@ function ranger-cd {
     fi
     rm -f -- "$tempfile"
 }
-
 # This binds Ctrl-O to ranger-cd:
 bindkey -s '^o' 'ranger-cd\n'
 
@@ -132,4 +136,7 @@ bindkey -s '^o' 'ranger-cd\n'
 autoload -Uz tetriscurses
 
 # Load zsh-syntax-highlighting; should be last.
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+# If Arch based:
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+# If Debian Based:
+#source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
