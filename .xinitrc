@@ -18,13 +18,14 @@ export AWT_TOOLKIT=MToolkit
 
 case $session in
     dwm )
+                                                # Load Xresources
+        [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+        
         chbg &                                  # Set random background & lockscreen images
 
         sxhkd -c ~/.config/sxhkd/dwmsxhkdrc &   # Simple X hotkey daemon
         xsetroot -cursor_name left_ptr &        # Change X shaped default cursor
         setxkbmap -layout us,ru &               # Keyboard layouts
-
-        xrdb ~/.Xresources &                    # Load Xresources
         xcompmgr -c &                           # Transparency
 
         dunst &                                 # Notifications
