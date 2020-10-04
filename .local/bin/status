@@ -1,82 +1,82 @@
 #!/bin/bash
 
-print_bytes() {
-    if [ "$1" -eq 0 ] || [ "$1" -lt 1000 ]; then
-        bytes="0 kB/s"
-    elif [ "$1" -lt 1000000 ]; then
-        bytes="$(echo "scale=0;$1/1000" | bc -l ) kB/s"
-    else
-        bytes="$(echo "scale=1;$1/1000000" | bc -l ) MB/s"
-    fi
-
-    echo "$bytes"
-}
-
-print_bit() {
-    if [ "$1" -eq 0 ] || [ "$1" -lt 10 ]; then
-        bit="0 B"
-    elif [ "$1" -lt 100 ]; then
-        bit="$(echo "scale=0;$1*8" | bc -l ) B"
-    elif [ "$1" -lt 100000 ]; then
-        bit="$(echo "scale=0;$1*8/1000" | bc -l ) K"
-    else
-        bit="$(echo "scale=1;$1*8/1000000" | bc -l ) M"
-    fi
-
-    echo "$bit"
-}
-
-host=$(hostname)
-
-INTERVAL=1
-
-if [ "$host" = 'p8z77' ]; then
-    INTERFACES="enp3s0"
-elif [ "$host" = 'y510p' ]; then
-    INTERFACES="enp7s0 wlp8s0"
-fi
-
-declare -A bytes
-
-for interface in $INTERFACES; do
-    bytes[past_rx_$interface]="$(cat /sys/class/net/"$interface"/statistics/rx_bytes)"
-    bytes[past_tx_$interface]="$(cat /sys/class/net/"$interface"/statistics/tx_bytes)"
-done
+#print_bytes() {
+#    if [ "$1" -eq 0 ] || [ "$1" -lt 1000 ]; then
+#        bytes="0 kB/s"
+#    elif [ "$1" -lt 1000000 ]; then
+#        bytes="$(echo "scale=0;$1/1000" | bc -l ) kB/s"
+#    else
+#        bytes="$(echo "scale=1;$1/1000000" | bc -l ) MB/s"
+#    fi
+#
+#    echo "$bytes"
+#}
+#
+#print_bit() {
+#    if [ "$1" -eq 0 ] || [ "$1" -lt 10 ]; then
+#        bit="0 B"
+#    elif [ "$1" -lt 100 ]; then
+#        bit="$(echo "scale=0;$1*8" | bc -l ) B"
+#    elif [ "$1" -lt 100000 ]; then
+#        bit="$(echo "scale=0;$1*8/1000" | bc -l ) K"
+#    else
+#        bit="$(echo "scale=1;$1*8/1000000" | bc -l ) M"
+#    fi
+#
+#    echo "$bit"
+#}
+#
+#host=$(hostname)
+#
+#INTERVAL=1
+#
+#if [ "$host" = 'p8z77' ]; then
+#    INTERFACES="enp3s0"
+#elif [ "$host" = 'y510p' ]; then
+#    INTERFACES="enp7s0 wlp8s0"
+#fi
+#
+#declare -A bytes
+#
+#for interface in $INTERFACES; do
+#    bytes[past_rx_$interface]="$(cat /sys/class/net/"$interface"/statistics/rx_bytes)"
+#    bytes[past_tx_$interface]="$(cat /sys/class/net/"$interface"/statistics/tx_bytes)"
+#done
 
 while true; do
-    down=0
-    up=0
+   # down=0
+   # up=0
 
-    for interface in $INTERFACES; do
-        bytes[now_rx_$interface]="$(cat /sys/class/net/"$interface"/statistics/rx_bytes)"
-        bytes[now_tx_$interface]="$(cat /sys/class/net/"$interface"/statistics/tx_bytes)"
+   # for interface in $INTERFACES; do
+   #     bytes[now_rx_$interface]="$(cat /sys/class/net/"$interface"/statistics/rx_bytes)"
+   #     bytes[now_tx_$interface]="$(cat /sys/class/net/"$interface"/statistics/tx_bytes)"
 
-        bytes_down=$((((${bytes[now_rx_$interface]} - ${bytes[past_rx_$interface]})) / INTERVAL))
-        bytes_up=$((((${bytes[now_tx_$interface]} - ${bytes[past_tx_$interface]})) / INTERVAL))
+   #     bytes_down=$((((${bytes[now_rx_$interface]} - ${bytes[past_rx_$interface]})) / INTERVAL))
+   #     bytes_up=$((((${bytes[now_tx_$interface]} - ${bytes[past_tx_$interface]})) / INTERVAL))
 
-        down=$(((( "$down" + "$bytes_down" ))))
-        up=$(((( "$up" + "$bytes_up" ))))
+   #     down=$(((( "$down" + "$bytes_down" ))))
+   #     up=$(((( "$up" + "$bytes_up" ))))
 
-        bytes[past_rx_$interface]=${bytes[now_rx_$interface]}
-        bytes[past_tx_$interface]=${bytes[now_tx_$interface]}
-    done
-    UP=""
-    DW=""
+   #     bytes[past_rx_$interface]=${bytes[now_rx_$interface]}
+   #     bytes[past_tx_$interface]=${bytes[now_tx_$interface]}
+   # done
+   # UP=""
+   # DW=""
 
-    if (( up > 1023 )); then
-        UP="| UP: $(print_bytes $up)"
-    fi
-    if (( down > 1023 )); then
-        DW="| DN: $(print_bytes $down)"
-    fi
+   # if (( up > 1023 )); then
+   #     UP="| UP: $(print_bytes $up)"
+   # fi
+   # if (( down > 1023 )); then
+   #     DW="| DN: $(print_bytes $down)"
+   # fi
 
     RAM="$(free -h | awk '/^Mem:/ {print $3 "/" $2}')"
-    CPU="$(sensors | awk '/Core 0/ {print $3}')"
+    #CPU="$(sensors | awk '/Core 0/ {print $3}')"
     KEY="$(setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}')"
     VOL="$(pamixer --get-volume)"
     DATE="$(LC_ALL=ru_RU.utf8 date +"%a %d %b %y %R")"
     
 
-    xsetroot -name "$UP $DW | RAM: $RAM | CPU: $CPU | VOL: $VOL% | KEY: $KEY | $DATE |"
+    xsetroot -name "| RAM: $RAM | VOL: $VOL% | KEY: $KEY | $DATE |"
     sleep 1
 done

@@ -1,4 +1,0 @@
-Install autohotkey by running winget install autohotkey
-Copy script file
-Press crtl + r and run shell::startup
-Paste link there

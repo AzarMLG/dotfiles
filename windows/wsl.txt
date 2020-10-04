@@ -1,5 +1,0 @@
-wsl --shutdown                  # Shutdown everything
-wsl -t <DistroName>             # Terminate specific distro
-
-sudo mount -t drvfs D: /mnt/d   # Mount external drives
-
