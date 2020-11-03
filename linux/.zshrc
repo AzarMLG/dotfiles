@@ -53,29 +53,26 @@ preexec() { echo -ne '\e[1 q' ;}
 
 # ALIASES
 # Basic stuff
-alias ls='ls --color=auto --group-directories-first'
-alias df="df -h"
+alias ls='ls --color=auto --group-directories-first -h'
 alias grep="grep --colour=auto"
 alias diff="diff --color=auto"
 alias cp="cp -iv"
 alias mv="mv -iv"
 alias rm="rm -v"
 alias du="du -h"
-alias dd="dd status=progress"
+alias df="df -h"
 alias free="free -h"
 
-alias sudo="sudo "                                               # Pass aliases to sudo
+alias ssh="TERM=xterm-256color ssh"                              # Force xterm on ssh sessions
 
 alias bat="cat /sys/class/power_supply/BAT?/capacity"            # Battery capacity 
-alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"    # Update GRUB configuration
+alias update-grub="grub-mkconfig -o /boot/grub/grub.cfg"         # Update GRUB configuration
 
 # Uncomment if Arch based
 alias purge="sudo pacman -Rns"                                   # Remove packages
 alias update="yay -Syu"                                          # Update packages
 alias inst="yay -Sy"                                             # Install packages
-alias autoremove="yay -Yc"                                       # Remove orphan packages
-                                                                 # List packages by size
-alias pkgsize="LC_ALL=C pacman -Qi | awk '/^Name/{name=\$3} /^Installed Size/{print \$4\$5, name}' | sort -h"
+alias autoremove="pacman -Qdtq | pacman -Rs -"                   # Remove orphan packages
 
 # Uncomment if Debian based
 #alias purge="sudo apt purge"                                     # Remove packages
@@ -88,14 +85,9 @@ alias reboot="systemctl reboot"                                  # Reboot
 alias suspend="systemctl suspend"                                # Suspend 
 alias hibernate="systemctl hibernate"                            # Hibernate
 
-alias bc="bc -ql"                                                # Run bc without welcome msg
-alias rnm="sudo systemctl restart NetworkManager"                # Restart Network Manager
-alias caps="remaps"                                              # Map capslock as esc
-
-alias google=googler                                             # Google search CLI
 alias corona="curl -s https://corona-stats.online"               # Coronavius stats
                                                                  # Corona in Belarus
-alias coronab='curl -s https://corona-stats.online/belarus | grep -e Country -e Belarus -e ═ -e ─ -e World --color=no' 
+alias coronabel='curl -s https://corona-stats.online/belarus | grep -e Country -e Belarus -e ═ -e ─ -e World --color=no' 
 alias weather="curl wttr.in"                                     # Show weather forecast
 
 # DEPRICATED ALIASES
@@ -114,7 +106,11 @@ alias weather="curl wttr.in"                                     # Show weather 
 #alias sc="'$EDITOR' ~/.config/sxhkd/dwmsxhkdrc"                  # sxhkd config
 #alias pc="'$EDITOR' ~/.config/polybar/config"                    # polybar config
 #alias bsc="'$EDITOR' ~/.config/bspwm/bspwmrc"                    # bspwm config
-
+#alias caps="remaps"                                              # Run remaps k as esc
+#alias dd="dd status=progress"
+#alias sudo="sudo "                                               # Pass aliases to sudo
+#alias rnm="sudo systemctl restart NetworkManager"                # Restart Network Manager
+#alias bc="bc -ql"                                                # Run bc without welcome msg
 
 # This is a function to automatically change the directory to
 # the last visited one after ranger quits.
