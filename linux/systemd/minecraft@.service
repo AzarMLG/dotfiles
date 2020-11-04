@@ -1,0 +1,13 @@
+[Unit]
+Description=Minecraft server
+After=newtwork.target
+
+[Service]
+WorkingDirectory=/opt/Minecraft-Server/
+Type=forking
+User=azar
+ExecStart=/opt/Minecraft-Server/start.sh
+ExecStop=/usr/bin/screen -S Minecraft -X stop
+
+[Install]
+WantedBy=multi-user.target
