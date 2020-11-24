@@ -5,6 +5,11 @@ SAVEHIST=10000
 autoload -U colors && colors
 PS1="%B%{$fg[yellow]%}[%{$fg[red]%}%n%{$fg[yellow]%}@%{$fg[green]%}%M %{$fg[magenta]%}%~%{$fg[yellow]%}]%{$reset_color%}$%b "
 
+if [ -d "$HOME/.local/bin" ] ; then
+  PATH="$PATH:$HOME/.local/bin"
+fi
+
+
 setopt autocd extendedglob nomatch
 unsetopt beep notify
 
@@ -72,7 +77,7 @@ alias update-grub="grub-mkconfig -o /boot/grub/grub.cfg"         # Update GRUB c
 alias purge="sudo pacman -Rns"                                   # Remove packages
 alias update="yay -Syu"                                          # Update packages
 alias inst="yay -Sy"                                             # Install packages
-alias autoremove="pacman -Qdtq | pacman -Rs -"                   # Remove orphan packages
+alias autoremove="sudo pacman -Rcns $(pacman -Qdtq)"             # Remove orphan packages
 
 # Uncomment if Debian based
 #alias purge="sudo apt purge"                                     # Remove packages
