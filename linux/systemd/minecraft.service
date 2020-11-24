@@ -3,10 +3,10 @@ Description=Minecraft server
 After=newtwork.target
 
 [Service]
-WorkingDirectory=/opt/Minecraft-Server/
+WorkingDirectory=/srv/Minecraft-Server/
 Type=forking
 User=azar
-ExecStart=/opt/Minecraft-Server/start.sh
+ExecStart=/srv/Minecraft-Server/start.sh
 ExecStop=/usr/bin/screen -S Minecraft -X stop
 
 [Install]
