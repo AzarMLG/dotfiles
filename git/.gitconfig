@@ -1,0 +1,5 @@
+[user]
+	email = temafilt@gmail.com
+	name = Artyom Azarevich
+[core]
+  editor = nvim
