@@ -1,5 +1,6 @@
 wsl --shutdown                  # Shutdown everything
 wsl -t <DistroName>             # Terminate specific distro
 
+                                # Only from next Windows release
 sudo mount -t drvfs D: /mnt/d   # Mount external drives
 
