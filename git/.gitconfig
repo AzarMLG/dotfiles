@@ -2,4 +2,5 @@
 	email = temafilt@gmail.com
 	name = Artyom Azarevich
 [core]
-  editor = nvim
+	editor = nvim
+	quotepath = false
