@@ -1,0 +1,2 @@
+Place shell script in /usr/local/bin/trackpoint_configuration.sh
+Place unit files in /etc/systemd/system
