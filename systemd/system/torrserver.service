@@ -1,0 +1,14 @@
+[Unit]
+Description=torrserver
+After=network.target
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Type=simple
+NonBlocking=true
+WorkingDirectory=/opt/torrserver
+ExecStart=/opt/torrserver/TorrServer-linux-amd64 --p 8090
+Restart=on-failure
+RestartSec=5s
